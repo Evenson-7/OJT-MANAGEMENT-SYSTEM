@@ -1,4 +1,5 @@
 // src/layouts/SupervisorLayout.jsx
+<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import { BarChart2, Users, Clipboard, Clock, Menu, ChevronLeft, Calendar, User } from 'lucide-react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
@@ -25,21 +26,34 @@ const SupervisorLayout = () => {
       setActiveItem(path);
     }
   }, [location]);
+=======
+import { useState } from 'react';
+import { BarChart2, Users, Clipboard, Clock, Menu, ChevronLeft, Calendar } from 'lucide-react';
+import { Outlet, useNavigate } from 'react-router-dom';
+
+const SupervisorLayout = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const navigate = useNavigate();
+>>>>>>> db7fdd23ea17068309846d732c4bd7f9cbad7e3a
 
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
 
+<<<<<<< HEAD
   const handleNavigation = (path) => {
     setActiveItem(path);
     navigate(`/supervisor/${path}`);
   };
 
+=======
+>>>>>>> db7fdd23ea17068309846d732c4bd7f9cbad7e3a
   const handleLogout = () => {
     localStorage.removeItem('currentUser');
     navigate('/');
   };
 
+<<<<<<< HEAD
   const navItems = [
     { icon: BarChart2, label: 'Dashboard', path: 'dashboard' },
     { icon: Users, label: 'Manage Interns', path: 'manage-interns' },
@@ -48,6 +62,9 @@ const SupervisorLayout = () => {
     { icon: Calendar, label: 'Leave Requests', path: 'leave-approvals' },
     { icon: BarChart2, label: 'Performance Overview', path: 'performance-overview' }
   ];
+=======
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+>>>>>>> db7fdd23ea17068309846d732c4bd7f9cbad7e3a
 
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-gray-100">
@@ -67,6 +84,7 @@ const SupervisorLayout = () => {
           </button>
         </div>
         <nav className="flex-1">
+<<<<<<< HEAD
           {navItems.map(({ icon: Icon, label, path }, idx) => (
             <div 
               key={idx} 
@@ -74,6 +92,28 @@ const SupervisorLayout = () => {
                 activeItem === path ? 'bg-blue-500' : 'hover:bg-gray-700'
               } p-4 flex items-center cursor-pointer`}
               onClick={() => handleNavigation(path)}
+=======
+          <div className="bg-blue-500 p-4 text-white flex items-center">
+            {isSidebarOpen ? (
+              <span className="truncate">Supervisor Dashboard</span>
+            ) : (
+              <div className="mx-auto">
+                <BarChart2 size={20} />
+              </div>
+            )}
+          </div>
+          {[
+            { icon: Users, label: 'Manage Interns', path: '/supervisor/interns' },
+            { icon: Clipboard, label: 'Timesheet Approvals', path: '/supervisor/timesheets' },
+            { icon: Calendar, label: 'Leave Management', path: '/supervisor/leave' },
+            { icon: Clock, label: 'Attendance Reports', path: '/supervisor/attendance' },
+            { icon: BarChart2, label: 'Performance Overview', path: '/supervisor/performance' }
+          ].map(({ icon: Icon, label, path }, idx) => (
+            <div 
+              key={idx} 
+              className="hover:bg-gray-700 p-4 flex items-center cursor-pointer"
+              onClick={() => navigate(path)}
+>>>>>>> db7fdd23ea17068309846d732c4bd7f9cbad7e3a
             >
               {isSidebarOpen ? (
                 <div className="flex items-center">
@@ -88,6 +128,7 @@ const SupervisorLayout = () => {
             </div>
           ))}
         </nav>
+<<<<<<< HEAD
         
         {/* User Info and Logout Button - Only visible when sidebar is open */}
         {isSidebarOpen && (
@@ -107,6 +148,10 @@ const SupervisorLayout = () => {
             )}
             
             {/* Logout Button */}
+=======
+        {isSidebarOpen && (
+          <div className="p-4 border-t border-gray-700">
+>>>>>>> db7fdd23ea17068309846d732c4bd7f9cbad7e3a
             <button
               onClick={handleLogout}
               className="w-full py-2 px-4 bg-red-600 hover:bg-red-700 rounded-md text-sm font-medium text-white"
