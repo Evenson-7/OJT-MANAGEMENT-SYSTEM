@@ -9,6 +9,14 @@ import LeaveManagement from './Intern pages/Leave Management';
 import Performance from './Intern pages/Performance';
 import SupervisorDashboard from './Supervisor pages/Supervisor Dashboard';
 import SupervisorLayout from './Supervisor pages/Supervisor Layout';
+<<<<<<< HEAD
+=======
+import ManageInterns from './Supervisor pages/Manage Interns';
+import TimesheetApprovals from './Supervisor pages/Timesheet Approvals';
+import LeaveApprovals from './Supervisor pages/Leave Approvals';
+import ReportApprovals from './Supervisor pages/Report Approvals';
+import PerformanceOverview from './Supervisor pages/Performance Overview';
+>>>>>>> golocino
 
 const App = () => {
   const isAuthenticated = () => {
@@ -50,7 +58,15 @@ const App = () => {
         >
           <Route index element={<SupervisorDashboard />} />
           <Route path="dashboard" element={<SupervisorDashboard />} />
+<<<<<<< HEAD
           {/* Future supervisor routes */}
+=======
+          <Route path="manage-interns" element={<ManageInterns />} />
+          <Route path="timesheet-approvals" element={<TimesheetApprovals />} />
+          <Route path="leave-approvals" element={<LeaveApprovals />} />
+          <Route path="report-approvals" element={<ReportApprovals />} />
+          <Route path="performance-overview" element={<PerformanceOverview />} />
+>>>>>>> golocino
         </Route>
       </Routes>
     </Router>
